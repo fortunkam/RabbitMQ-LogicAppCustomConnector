@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug RabbitMQ Send Console",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/RabbitMQSendConsole/bin/Debug/net5.0/RabbitMQSendConsole.dll",
+            "args": [
+                "rabbit@rmq-rabbit.uksouth.azurecontainer.io",
+                "demo",
+                "demo",
+                "password123",
+                "Hello World"
+            ],
+            "cwd": "${workspaceFolder}/RabbitMQSendConsole/",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "name": "Attach to .NET Functions",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:azureFunctions.pickProcess}"
+        }
+    ]
+}
