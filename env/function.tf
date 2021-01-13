@@ -25,4 +25,19 @@ resource "azurerm_function_app" "function" {
   version = "~3"
   storage_account_name = azurerm_storage_account.function_storage.name
   storage_account_access_key = azurerm_storage_account.function_storage.primary_access_key
+
+  app_settings = {
+    "RabbitMQConnectionAppSetting"=var.rabbitMQConnectionString
+    "WEBSITE_DISABLE_OVERLAPPED_RECYCLING" = "1"
+    "APPLICATIONINSIGHTS_CONNECTION_STRING"="InstrumentationKey=${azurerm_application_insights.appinsights.instrumentation_key}"
+    "APPINSIGHTS_INSTRUMENTATIONKEY"=azurerm_application_insights.appinsights.instrumentation_key
+    "APPINSIGHTS_PROFILERFEATURE_VERSION"="1.0.0"
+    "APPINSIGHTS_SNAPSHOTFEATURE_VERSION"="1.0.0"
+    "ApplicationInsightsAgent_EXTENSION_VERSION"="~2"
+    "DiagnosticServices_EXTENSION_VERSION"="~3"
+    "InstrumentationEngine_EXTENSION_VERSION"="disabled"
+    "SnapshotDebugger_EXTENSION_VERSION"="disabled"
+    "XDT_MicrosoftApplicationInsights_BaseExtensions"="disabled"
+    "XDT_MicrosoftApplicationInsights_Mode"="recommended"
+  }
 }

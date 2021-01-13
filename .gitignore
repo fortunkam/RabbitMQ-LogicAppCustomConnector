@@ -266,3 +266,6 @@ __pycache__/
 env/.terraform
 env/.terraform.*
 env/terraform.*
+
+Workflow/Properties/PublishProfiles/*
+

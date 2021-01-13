@@ -5,11 +5,14 @@ variable prefix {
     default="rmq"
 }
 
+variable rabbitMQConnectionString {}
+
 locals {
     rg_name = "${var.prefix}"
     app_service_plan_name = "${var.prefix}-plan"
     rabbitmq_aci_name = "${var.prefix}-rabbit"
     function_name = "${var.prefix}-function"
+    app_insights_name = "${var.prefix}-insights"
 }
 
 resource "random_id" "storage_name" {

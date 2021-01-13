@@ -10,7 +10,7 @@ namespace Memoryleek
         [FunctionName("RabbitMQTriggerTest")]
         public static void Run([RabbitMQTrigger("demo", ConnectionStringSetting = "RabbitMQConnectionAppSetting")]string myQueueItem, ILogger log)
         {
-            log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+            log.LogInformation($"C# RabbitMQ trigger function processed message: {myQueueItem}");
         }
     }
 }
