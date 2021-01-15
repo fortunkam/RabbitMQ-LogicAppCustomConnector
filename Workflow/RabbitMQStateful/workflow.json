@@ -1,0 +1,32 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Run_in-line_JavaScript": {
+                "type": "JavaScriptCode",
+                "inputs": {
+                    "code": "return workflowContext.trigger.outputs.body.message;"
+                },
+                "runAfter": {}
+            }
+        },
+        "triggers": {
+            "receive_message": {
+                "type": "ServiceProvider",
+                "inputs": {
+                    "parameters": {
+                        "queueName": "demo"
+                    },
+                    "serviceProviderConfiguration": {
+                        "connectionName": "rabbitmq",
+                        "operationId": "receiveMessage",
+                        "serviceProviderId": "/serviceProviders/rabbitmq"
+                    }
+                }
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {}
+    },
+    "kind": "Stateful"
+}

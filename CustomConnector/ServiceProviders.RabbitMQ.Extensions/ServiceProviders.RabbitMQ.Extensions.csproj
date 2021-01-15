@@ -6,6 +6,10 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>test.snk</AssemblyOriginatorKeyFile>
     <Version>1.0.0</Version>
+    <PackageId>Memoryleek.ServiceProviders.RabbitMQ.Extensions</PackageId>
+    <Company>Memoryleek</Company>
+    <Authors>Matthew Fortunka</Authors>
+    <AssemblyName>Memoryleek.ServiceProviders.RabbitMQ.Extensions</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
